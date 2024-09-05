@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Display all active IPv4 IPs on the machine
+ip -4 -o addr show scope global | awk '{print $4}' | cut -d/ -f1
+
+# Display loopback IPv4 IP
+ip -4 -o addr show scope host | awk '{print $4}' | cut -d/ -f1
