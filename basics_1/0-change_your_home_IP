@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-# Make sure to run this script with superuser privileges
+# This script modifies the /etc/hosts file and requires superuser privileges.
 
 # Backup the original /etc/hosts file
 sudo cp /etc/hosts /etc/hosts.bak
