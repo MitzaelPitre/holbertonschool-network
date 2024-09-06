@@ -3,15 +3,14 @@
 # Este script configura el archivo /etc/hosts para que localhost resuelva a 127.0.0.2 y facebook.com a 8.8.8.8
 
 # Realizar una copia de seguridad del archivo /etc/hosts
-sudo cp /etc/hosts /etc/hosts.backup
+sudo cp /etc/hosts /etc/hosts.bak
 
 # Eliminar cualquier entrada previa de localhost y facebook.com para evitar duplicados
 sudo sed -i '/127.0.0.1\s*localhost/d' /etc/hosts
-sudo sed -i '/127.0.0.2\s*localhost/d' /etc/hosts
-sudo sed -i '/8.8.8.8\s*facebook.com/d' /etc/hosts
+sudo sed -i '/facebook.com/d' /etc/hosts
 
 # Agregar las nuevas entradas al archivo /etc/hosts
-echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts
-echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts
+echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts > /dev/null
+echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts > /dev/null
 
-echo "La configuración se aplicó correctamente. Recuerda revertir los cambios si es necesario."
+echo "La configuración se aplicó correctamente: localhost -> 127.0.0.2, facebook.com -> 8.8.8.8"
