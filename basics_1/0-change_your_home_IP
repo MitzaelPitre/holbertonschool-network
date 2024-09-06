@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
+# This script configures the /etc/hosts file to resolve localhost to 127.0.0.2 and facebook.com to 8.8.8.8
 
-# Este script configura el archivo /etc/hosts para que localhost resuelva a 127.0.0.2 y facebook.com a 8.8.8.8
-
-# Realizar una copia de seguridad del archivo /etc/hosts
+# Backup the original /etc/hosts file
 sudo cp /etc/hosts /etc/hosts.bak
 
-# Eliminar cualquier entrada previa de localhost y facebook.com para evitar duplicados
+# Remove any existing localhost and facebook.com entries
 sudo sed -i '/127.0.0.1\s*localhost/d' /etc/hosts
 sudo sed -i '/facebook.com/d' /etc/hosts
 
-# Agregar las nuevas entradas al archivo /etc/hosts
+# Add new entries for localhost and facebook.com
 echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts > /dev/null
 echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts > /dev/null
 
-echo "La configuración se aplicó correctamente: localhost -> 127.0.0.2, facebook.com -> 8.8.8.8"
+echo "Host resolution updated: localhost -> 127.0.0.2, facebook.com -> 8.8.8.8"
