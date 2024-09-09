@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script modifies the /etc/hosts file and requires superuser privileges.
+# This script modifies the /etc/hosts file to set localhost and facebook.com to specific IP addresses.
 
 # Backup the original /etc/hosts file
 sudo cp /etc/hosts /etc/hosts.bak
