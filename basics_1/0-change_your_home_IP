@@ -8,6 +8,9 @@ sudo cp /etc/hosts /etc/hosts.bak
 sudo sed -i '/127.0.0.1\s*localhost/d' /etc/hosts
 sudo sed -i '/facebook.com/d' /etc/hosts
 
+# Remove any existing 127.0.0.1 localhost entry
+sudo sed -i '/127.0.0.1\s*localhost/d' /etc/hosts
+
 # Add new entries for localhost and facebook.com
 echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts > /dev/null
 echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts > /dev/null
