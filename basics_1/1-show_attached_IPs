@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+<<<<<<< HEAD
 # Muestra todas las IPs IPv4 activas en la máquina con formato adecuado
 
 ifconfig | grep 'inet ' | awk '{print $2}' | cat -e
+=======
+# Bash script that displays all active IPv4 IPs on the machine it’s executed on
+
+ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | cut -b 11-
+>>>>>>> b62b1379d83762b1aded23af32c0fb6655a6f1c8

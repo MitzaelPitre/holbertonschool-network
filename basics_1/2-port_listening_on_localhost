@@ -2,4 +2,4 @@
 # Listen on port 98 on localhost
 
 # Start listening on port 98
-nc -l -p 98
+sudo nc -l -p 98
