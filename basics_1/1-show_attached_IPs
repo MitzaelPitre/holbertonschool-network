@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
-# Muestra todas las IPs IPv4 activas en la máquina con formato adecuado
+# This script displays all active IPv4 IPs on the machine it’s executed on.
 
-ifconfig | grep 'inet ' | awk '{print $2}' | cat -e
+# Check if ifconfig is available, if so use it to display IPs.
+if command -v ifconfig &> /dev/null; then
+    ifconfig | grep 'inet ' | awk '{print $2}'
+# If ifconfig is not available, use the ip command to display the IPs.
+elif command -v ip &> /dev/null; then
+    ip -4 -o addr show | awk '{print $4}' | cut -d "/" -f 1
+else
+    # If neither ifconfig nor ip are available, exit with an error message
+    echo "Neither ifconfig nor ip are available."
+    exit 1
+fi
